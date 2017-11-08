@@ -1,3 +1,4 @@
+
 https://github.com/shibbir/generator-angular2-typescript
 npm install yo generator-angular2-typescript -g
 mkdir MQWeb && cd MQWeb
