@@ -1,0 +1,57 @@
+https://github.com/shibbir/generator-angular2-typescript
+npm install yo generator-angular2-typescript -g
+mkdir MQWeb && cd MQWeb
+yo angular2-typescript MQWeb
+##############
+webpack & gulp errors:
+1. error TS2304: Cannot find name 'Iterable'.
+solution: update "target": "es5" to "target": "es6" in tsconfig.json
+https://hassantariqblog.wordpress.com/2017/03/12/angular2-resolve-typescript-ts2304-compilation-errors-in-visual-studio/
+
+2. TS2345: Argument of type 'true' is not assignable to parameter of type 'Expected<Promise<boolean>>'
+solution: Froze @types/jasmine to 2.5.45 ("@types/jasmine": "^2.5.45") in package.json since the newer versions (2.5.51) conflict with Protractor 
+npm uninstall @types/jasmine
+npm install @types/jasmine@2.5.45
+
+------------------------------
+upgrade Angular 2 to Angular 4
+
+npm install @angular/common@latest @angular/compiler@latest @angular/compiler-cli@latest @angular/core@latest @angular/forms@latest
+ @angular/http@latest
+ @angular/platform-browser@latest
+ @angular/platform-browser-dynamic@latest
+ @angular/platform-server@latest
+ @angular/router@latest
+ @angular/animations@latest 
+typescript@latest --save
+
+npm --save install @angular/common@latest @angular/compiler@latest @angular/compiler-cli@latest @angular/core@latest @angular/forms@latest @angular/http@latest @angular/platform-browser@latest @angular/platform-browser-dynamic@latest @angular/platform-server@latest @angular/router@latest @angular/animations@latest typescript@latest zone.js@latest
+----------------------------
+gulp bundle:app 
+with SyntaxError: Unexpected token: name (AppComponent)
+Solution: 
+uglify-js only support ECMAScript 5 (ES5), when tsconfig.json  was updated to "target": "es6", it is not working. 
+So need to change minify: true in  gulp.task('bundle:app'...) of gulpfile.js to false. or use harmony to uglify the file.
+https://www.npmjs.com/package/uglify-js-es6
+https://github.com/mishoo/UglifyJS2/tree/harmony
+
+-----------------------
+https://hassantariqblog.wordpress.com/2017/03/12/angular2-resolve-typescript-ts2304-compilation-errors-in-visual-studio/
+ES6 not working with IE11
+Solution: 
+1. change "target": "es6" to "target": "es5" in tsconfig.json
+2. If you want to stick to ES5 then then change types/core-js to version ¡°0.9.36¡± in package.json. "@types/core-js": "0.9.36",
+
+---------------------
+commands:
+Version Number:
+npm view jasmine version
+
+To update package.json in addition to the local modules, run
+npm update --save-dev
+
+How do I update devDependencies in NPM?
+1. install npm-check-updates
+npm install npm-check-updates -g
+2. update and save changes to your package.json file:
+npm-check-updates -u
