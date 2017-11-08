@@ -1,3 +1,4 @@
+
 https://github.com/shibbir/generator-angular2-typescript
 npm install yo generator-angular2-typescript -g
 mkdir MQWeb && cd MQWeb
@@ -40,7 +41,7 @@ https://hassantariqblog.wordpress.com/2017/03/12/angular2-resolve-typescript-ts2
 ES6 not working with IE11
 Solution: 
 1. change "target": "es6" to "target": "es5" in tsconfig.json
-2. If you want to stick to ES5 then then change types/core-js to version ¡°0.9.36¡± in package.json. "@types/core-js": "0.9.36",
+2. If you want to stick to ES5 then then change types/core-js to version Â¡Â°0.9.36Â¡Â± in package.json. "@types/core-js": "0.9.36",
 
 ---------------------
 commands:
